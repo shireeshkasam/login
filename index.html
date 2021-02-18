@@ -46,19 +46,32 @@
                 }
             })
         })
-    
      $(function () {
             $("#signup").click(function () {
                     window.parent.postMessage(JSON.stringify({
-                        event_code: 'ym-client-event-signup', data: JSON.stringify({
+                        event_code: 'ym-client-event', data: JSON.stringify({
                             event: {
                                 code: "auth",
                                 data: {
-                                    login: "signup"
+                                
+                                    signup: "signup"
                                 }
                             }
                         })
                     }), '*');
+
+
+                    $('#custom :input').attr('disabled', 'disabled');
+                    $('#custom').fadeTo("slow", 0.15, function () {
+                        $(this).find(':input').attr('disabled', 'disabled');
+                        $(this).find('label').css('cursor', 'default');
+                        $('#add').append('Redirecting to sign up page');
+                    });
+                  
+            })
+        })
+    
+     
     </script>
    
 </head>
