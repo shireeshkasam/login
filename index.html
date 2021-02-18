@@ -46,6 +46,19 @@
                 }
             })
         })
+    
+     $(function () {
+            $("#signup").click(function () {
+                    window.parent.postMessage(JSON.stringify({
+                        event_code: 'ym-client-event-signup', data: JSON.stringify({
+                            event: {
+                                code: "auth",
+                                data: {
+                                    login: "signup"
+                                }
+                            }
+                        })
+                    }), '*');
     </script>
    
 </head>
@@ -63,7 +76,7 @@
       <input type="password" class="form-control" id="password" placeholder="Enter password" name="pwd">
     </div>
     <button type="submit" id= "submit" class="btn btn-default">Login</button>
-    <a href="https://yellowmessenger.com/"> <button type="button" class="btn btn-default" >Sign Up</button></a>
+    <button type="button" id= "signup" class="btn btn-default" >Sign Up</button>
 
       </form>
 
